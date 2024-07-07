@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>My First Bootstrap Page</title>
-    <!-- Required meta tags -->
+    <title>Second Page Bootstrap</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
     <link href="carousel.css" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  
-  </head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-purple">
-            <a class="navbar-brand" href="#">Boonyarit</a>
+            <a class="navbar-brand" href="#">Carousel</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -50,7 +53,8 @@
                 max-width: 400px;
                 height: auto;
             }
-            .navbar{
+
+            .navbar {
                 background-color: purple;
             }
             button.btn {
@@ -59,6 +63,7 @@
         </style>
     </header>
 
+
     <main role="main">
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -66,29 +71,26 @@
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="responsive"
-                        src="https://th.bing.com/th/id/OIP.Y2RYgNKseJjjvMlUDLHiJgHaE8?rs=1&pid=ImgDetMain"
+                    <img class="responsive" src="https://www.mkgifs.com/wp-content/uploads/2022/05/mr-bean-agry-gif.gif"
                         alt="First slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
-                            <h1>My First Bootstrap Page</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-                                gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <h1>I'm Mr.Bean</h1>
+                            <p>Mr. Bean lives in Flat 2, 12 Arbour Road, Highbury, London, England. His first name and his profession, if any, are never mentioned; he introduces himself simply as "Bean.".</p>
                             <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="responsive"
-                        src="https://i.pinimg.com/originals/bc/e5/5a/bce55aebfc8c5e07e9e40762c398244f.jpg"
+                        src="https://th.bing.com/th/id/OIP.WixYxOYVGLHx15cju15OOwHaE8?rs=1&pid=ImgDetMain"
                         alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>Second Page</h1>
+                            <h1>Time to see my show.</h1>
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
                                 gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                             <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
@@ -96,27 +98,15 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="responsive" src="https://i.ytimg.com/vi/9JJ5XvoKrhw/maxresdefault.jpg"
+                    <img class="responsive"
+                        src="https://th.bing.com/th/id/OIP.XxnwoOZWDyOdhcnY0qxHvgHaEA?rs=1&pid=ImgDetMain"
                         alt="Third slide">
                     <div class="container">
                         <div class="carousel-caption text-right">
-                            <h1>Third Page</h1>
+                            <h1>I hope u guy have fun.</h1>
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
                                 gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                             <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="responsive"
-                        src="https://th.bing.com/th?id=OIF.3Xjki1NFXKf%2bJS2AfZlzUg&rs=1&pid=ImgDetMain"
-                        alt="Forth slide">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Forth Page</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-                                gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Welcome</a></p>
                         </div>
                     </div>
                 </div>
@@ -133,7 +123,7 @@
 
 
         <!-- Marketing messaging and featurettes
-        ================================================== -->
+      ================================================== -->
         <!-- Wrap the rest of the page in another container to center all the content. -->
 
         <div class="container marketing">
@@ -142,95 +132,111 @@
             <div class="row">
                 <div class="col-lg-4 col-sm-6">
                     <img class="rounded-circle"
-                        src="https://gifdb.com/images/high/mr-bean-hello-ra99pap9sh04wpq6.gif"
+                        src="https://yt3.ggpht.com/a/AATXAJyma4zppiPzYEhpAKbs-fvvnJ4lE6VXSBtgVA=s900-c-k-c0xffffffff-no-rj-mo"
                         alt="Generic placeholder image" width="140" height="140">
-                    <h2>Activity</h2>
+                    <h2>History</h2>
                     <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh
-                        ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                        Praesent commodo cursus magna.</p>
+                        ultricies
+                        vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent
+                        commodo
+                        cursus magna.</p>
                     <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4 col-sm-6">
                     <img class="rounded-circle"
                         src="https://images-na.ssl-images-amazon.com/images/S/pv-target-images/8699bb8c759240eaef1c336cba8f0476191838cbe4e9dab0076a318df55b84b7._RI_V_TTW_.jpg"
                         alt="Generic placeholder image" width="140" height="140">
-                    <h2>Experience</h2>
+                    <h2>His Parent</h2>
                     <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                        Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo,
-                        tortor mauris condimentum nibh.</p>
+                        Cras
+                        mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor
+                        mauris
+                        condimentum nibh.</p>
                     <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4 col-sm-6">
                     <img class="rounded-circle"
-                        src="https://media.tenor.com/8JcJEQLYNKQAAAAd/mr-bean-the-animated-series-rowan-atkinison.gif"
+                        src="https://media1.tenor.com/m/4iONRT9wmRYAAAAd/bean-mr-bean.gif"
                         alt="Generic placeholder image" width="140" height="140">
-                    <h2>Hobbies</h2>
+                    <h2>Mood :D</h2>
                     <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id
-                        ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                        ligula
+                        porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+                        nibh,
+                        ut fermentum massa justo sit amet risus.</p>
                     <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
+
+
+            <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your
+                            mind.</span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
+                        euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
+                        tellus ac cursus commodo.</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Atkinson_Rowan.jpg/330px-Atkinson_Rowan.jpg"
+                        alt="Generic placeholder image">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for
+                            yourself.</span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
+                        euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
+                        tellus ac cursus commodo.</p>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" 
+                        src="https://th.bing.com/th/id/R.5bad13ab5c9a1780a06c076d08ee8e01?rik=bOp0o1QJEVN1Sg&riu=http%3a%2f%2ffunnyneel.com%2fsites%2fdefault%2ffiles%2fimages%2fimages%2fMr+Bean+Family.png&ehk=jejzdUmxerqvngw3a6h68jV9Z%2f%2b9ARHiTmWDAQxUyRk%3d&risl=&pid=ImgRaw&r=0"
+                        alt="Generic placeholder image">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
+                        euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
+                        tellus ac cursus commodo.</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto"
+                        src="https://hips.hearstapps.com/roa.h-cdn.co/assets/15/04/980x490/landscape_nrm_1422051708-mrbean.jpg?resize=1200:*"
+                        alt="Generic placeholder image">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <!-- /END THE FEATURETTES -->
+
         </div><!-- /.container -->
 
-        <div class="container" style="margin-top:30px">
-            <table class="table  table-striped table-borderedless table-light">
-              <thead style="color: black;" class="table-light table-borderless">
-                <tr>
-                  <th>Firstname</th>
-                  <th>Lastname</th>
-                  <th>Email</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Jim</td>
-                  <td>Dob</td>
-                  <td>jim@example.com</td>
-                </tr>
-                <tr>
-                  <td>Jane</td>
-                  <td>Moe</td>
-                  <td>jane@example.com</td>
-                </tr>
-                <tr>
-                  <td>July</td>
-                  <td>Dooley</td>
-                  <td>july@example.com</td>
-                </tr>
-                <tr>
-                  <td>John</td>
-                  <td>Doe</td>
-                  <td>john@example.com</td>
-                </tr>
-                <tr>
-                  <td>Mary</td>
-                  <td>Moe</td>
-                  <td>mary@example.com</td>
-                </tr>
-                <tr>
-                  <td>Arik</td>
-                  <td>Dooley</td>
-                  <td>arik@example.com</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
 
         <!-- FOOTER -->
         <footer class="container">
             <p class="float-right"><a href="#">Back to top</a></p>
-            <p>&copy;Author by Boonyarit Thongma </p>
+            <p>&copy; 2017-2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
         </footer>
     </main>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
     <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/holder.min.js"></script>
-</body>
+    </body>
 
 </html>
