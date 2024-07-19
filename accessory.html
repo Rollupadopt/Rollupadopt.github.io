@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Car Accessories</title>
     <link href="./global.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 </head>
+
 <body>
     <h1>Car Accessories</h1>
- 
+
     <h3>Add Accessory</h3>
-    <select id="accessory-select">
-        <option value="10">Car Cover</option>
-        <option value="20">Seat Covers</option>
-        <option value="30">Phone Holder</option>
-        <!-- Add more options here -->
-    </select>
-    <input type="number" id="amount-input" min="1" value="1">
-    <button class="add-button">Add</button>
- 
- 
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Add Item
+    </button>
     <h2>Product List</h2>
     <table id="product-list">
         <tr>
@@ -27,41 +26,70 @@
             <th>Price</th>
         </tr>
     </table>
-    
+
     <h2>Total Price: <span id="total-price">$0</span></h2>
     <br>
     <h2>Vat 7%: <span id="vat-price">$0</span></h2>
     <br>
     <h2>Total Price with including Vat 7%: <span id="total-include-vat">$0</span></h2>
- 
-    
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Accessory</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <select id="accessory-select-modal">
+                        <option value="10">Car Cover</option>
+                        <option value="20">Seat Covers</option>
+                        <option value="30">Phone Holder</option>
+                         <!-- Add more options here -->
+                    </select>
+                    <input type="number" id="amount-input-modal" min="1" max="9" value="1">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="add-item-button">Add Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        $(document).ready(function() {
-            $(".add-button").on("click", function() {
-                var selectedAccessory = $("#accessory-select option:selected").text();
-                var selectedAccessoryValue = $("#accessory-select").val();
-                var amount = $("#amount-input").val();
+        $(document).ready(function () {
+            $("#add-item-button").on("click", function () {
+                var selectedAccessory = $("#accessory-select-modal option:selected").text();
+                var selectedAccessoryValue = $("#accessory-select-modal").val();
+                var amount = $("#amount-input-modal").val();
                 var price = parseFloat(selectedAccessoryValue);
                 var vatRate = 0.07;
-                
+
                 var newRow = $("<tr>");
                 var accessoryCell = $("<td>").text(selectedAccessory);
                 var amountCell = $("<td>").text(amount);
                 var priceCell = $("<td>").text("$" + (price * amount));
-                
+
                 newRow.append(accessoryCell).append(amountCell).append(priceCell);
                 $("#product-list").append(newRow);
-                
+
                 var totalPrice = parseFloat($("#total-price").text().substring(1)) + (price * amount);
                 $("#total-price").text("$" + totalPrice.toFixed(2));
-                
+
                 var vatPrice = parseFloat($("#vat-price").text().substring(1)) + (price * amount * vatRate);
                 $("#vat-price").text("$" + vatPrice.toFixed(2));
-                
+
                 var netPrice = parseFloat($("#total-include-vat").text().substring(1)) + (price * amount * (1 + vatRate));
                 $("#total-include-vat").text("$" + netPrice.toFixed(2));
+
+                $("#exampleModal").modal('hide');
             });
         });
     </script>
 </body>
+
 </html>

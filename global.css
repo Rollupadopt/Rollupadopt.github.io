@@ -22,13 +22,20 @@ tr:nth-child(even) {
     background-color: #3e8e41;
 }
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: "Sofia", sans-serif !important;
+    background-image: url("https://cdn.wallpapersafari.com/43/42/IwWBH3.jpg");
+    opacity: 1;
 }
 
+body h1{
+    text-align: center;
+    font-style: bold;
+    font-size: 30px;;
+}
 h1, h2, h3 {
     color: #333;
     margin-bottom: 10px;
+    font-size: large;
 }
 
 #accessory-select, #amount-input {
@@ -36,4 +43,13 @@ h1, h2, h3 {
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 200px;
+    margin: 0 auto;
+}
+
+#product-list, tr{
+    font-size: 20px;
+    border-width: 400px;
+    border: solid 3px;
+    border-radius: 5px;
+    background-color: white;
 }
