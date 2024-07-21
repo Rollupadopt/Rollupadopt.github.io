@@ -4,21 +4,51 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Car Accessories</title>
-    <link href="./global.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="./global.css">
+    <link href="https://fonts.googleapis.com/css?family=Sofia" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
     <h1>Car Accessories</h1>
 
-    <h3>Add Accessory</h3>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Add Item
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
+        Add Product
     </button>
-    <h2>Product List</h2>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Add Accessory</h5>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <select id="accessory-select-modal">
+                        <option value="10">Car Cover</option>
+                        <option value="20">Seat Covers</option>
+                        <option value="30">Phone Holder</option>
+                        <!-- Add more options here -->
+                    </select>
+                    <input type="number" id="amount-input-modal" min="1" max="9" value="1">
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="addItem()">Add
+                    Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Product List</h3>
     <table id="product-list">
         <tr>
             <th>Accessory</th>
@@ -27,68 +57,54 @@
         </tr>
     </table>
 
-    <h2>Total Price: <span id="total-price">$0</span></h2>
-    <br>
-    <h2>Vat 7%: <span id="vat-price">$0</span></h2>
-    <br>
-    <h2>Total Price with including Vat 7%: <span id="total-include-vat">$0</span></h2>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Accessory</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <select id="accessory-select-modal">
-                        <option value="10">Car Cover</option>
-                        <option value="20">Seat Covers</option>
-                        <option value="30">Phone Holder</option>
-                         <!-- Add more options here -->
-                    </select>
-                    <input type="number" id="amount-input-modal" min="1" max="9" value="1">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="add-item-button">Add Item</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h3>Total Price: <span id="total-price">$0</span></h3>
+    <h3>Vat 7%: <span id="vat-price">$0</span></h3>
+    <h3>Total Price with including Vat 7%: <span id="total-include-vat">$0</span></h3>
 
     <script>
-        $(document).ready(function () {
-            $("#add-item-button").on("click", function () {
-                var selectedAccessory = $("#accessory-select-modal option:selected").text();
-                var selectedAccessoryValue = $("#accessory-select-modal").val();
-                var amount = $("#amount-input-modal").val();
-                var price = parseFloat(selectedAccessoryValue);
-                var vatRate = 0.07;
+        var item_id = 0;
 
-                var newRow = $("<tr>");
-                var accessoryCell = $("<td>").text(selectedAccessory);
-                var amountCell = $("<td>").text(amount);
-                var priceCell = $("<td>").text("$" + (price * amount));
+        var total_price_text = $("#total-price");
+        var vat_price_text = $("#vat-price");
+        var total_include_vat_text = $("#total-include-vat");
 
-                newRow.append(accessoryCell).append(amountCell).append(priceCell);
-                $("#product-list").append(newRow);
+        function addItem() {
+            //get data 
+            var accessoryOption = $("#accessory-select-modal option:selected");
+            var name_of_option = accessoryOption.text();
+            var price_of_option = accessoryOption.val();
+            var amount_input = $("#amount-input-modal").val();
 
-                var totalPrice = parseFloat($("#total-price").text().substring(1)) + (price * amount);
-                $("#total-price").text("$" + totalPrice.toFixed(2));
+            //create new row part
+            var product_list_table = $("#product-list")
+            var name_row = "<td>" + name_of_option + "</td>"
+            var amount_row = "<td>" + amount_input + "</td>"
+            var price_row = "<td>$" + (amount_input * price_of_option) + "</td>"
+            var remove_button = `<td><button id="item_${item_id}" onclick="removeItem(${price_of_option},${amount_input},'item_${item_id}')" type='button' class='btn btn-outline-danger'>x</button></td>`
+            var the_row = "<tr id='item_" + item_id + "'>" + name_row + amount_row + price_row + remove_button + "</tr>"
 
-                var vatPrice = parseFloat($("#vat-price").text().substring(1)) + (price * amount * vatRate);
-                $("#vat-price").text("$" + vatPrice.toFixed(2));
+            //adding row
+            product_list_table.append(the_row);
 
-                var netPrice = parseFloat($("#total-include-vat").text().substring(1)) + (price * amount * (1 + vatRate));
-                $("#total-include-vat").text("$" + netPrice.toFixed(2));
+            //calculate the total part
+            var total_price = amount_input * price_of_option;
 
-                $("#exampleModal").modal('hide');
-            });
-        });
+            total_price_text.html("$" + (parseFloat(total_price_text.text().substring(1)) + (total_price)).toFixed(2));
+            vat_price_text.html("$" + (parseFloat(vat_price_text.text().substring(1)) + (total_price * 0.07)).toFixed(2));
+            total_include_vat_text.html("$" + (parseFloat(total_include_vat_text.text().substring(1)) + (total_price) * 1.07).toFixed(2))
+
+            item_id += 1;
+        }
+
+        function removeItem(price, amount, item_id) {
+            var total_price = price * amount;
+
+            total_price_text.html("$" + (parseFloat(total_price_text.text().substring(1)) - (total_price)).toFixed(2));
+            vat_price_text.html("$" + (parseFloat(vat_price_text.text().substring(1)) - (total_price * 0.07)).toFixed(2));
+            total_include_vat_text.html("$" + (parseFloat(total_include_vat_text.text().substring(1)) - (total_price) * 1.07).toFixed(2))
+
+            $("#" + item_id).remove();
+        }
     </script>
 </body>
 
